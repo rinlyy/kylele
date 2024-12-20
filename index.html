@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif; /* A softer, more elegant font */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to bottom, #800000, #000000); /* Ombre from deep red to black */
+            color: #fff;
+        }
+        .page {
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+            background: #330000;
+            padding: 30px; /* Increased padding for a more spacious feel */
+            border-radius: 20px; /* More rounded corners */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Softer shadow */
+        }
+        h1 {
+            font-size: 2.5em; /* Larger and softer header */
+            color: #ffcccc;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        button {
+            background-color: #800000;
+            color: #fff;
+            border: none;
+            padding: 12px 24px; /* Slightly larger padding for a more delicate button */
+            cursor: pointer;
+            border-radius: 30px; /* Rounded, soft button edges */
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #b30000;
+        }
+        input {
+            width: 90%;
+            padding: 12px; /* More padding for input fields */
+            margin: 15px 0;
+            border: 1px solid #800000;
+            border-radius: 15px; /* Rounded corners for input fields */
+            background: #1a1a1a;
+            color: #fff;
+            font-size: 16px; /* Larger font size for input fields */
+        }
+        label {
+            display: block;
+            margin: 12px 0 5px;
+            font-size: 1.1em; /* Slightly larger label text */
+        }
+        .error {
+            color: #ff0000;
+            margin-top: 10px;
+            font-size: 1em;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <h1>Login</h1>
+        <form id="login-form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Login</button>
+            <p id="error-message" class="error hidden">Invalid username or password.</p>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === 'kyle' && password === 'iloveyou') {
+                window.location.href = 'reveal.html';
+            } else {
+                const errorMessage = document.getElementById('error-message');
+                errorMessage.classList.remove('hidden');
+                errorMessage.textContent = 'Invalid username or password.';
+            }
+        });
+    </script>
+</body>
+</html>
